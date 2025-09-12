@@ -6,7 +6,6 @@ export const getProducts = async (
  brand_id: string | null,
  color_id: string | null
 ): Promise<ProductResponse> => {
-  console.log('getProducts')
   const { data } = await gutiMotors.get<ProductResponse>(
     "/motorcycles/api/motorcycle-photo",
     {
