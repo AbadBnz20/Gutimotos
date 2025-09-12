@@ -8,7 +8,6 @@ import { FilterSidebar } from "./FilterSidebar";
 import { ProductCard } from "./ProductCard";
 import { EmptyContent } from "./EmptyContent";
 import { DialogProduct } from "./DialogProduct";
-import { ContentImg } from "./ContentImg";
 interface Props {
   products: Product[];
 }

@@ -9,7 +9,6 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { IoExitOutline } from "react-icons/io5";
-import { useEffect, useState } from "react";
 import type { User } from "@/auth/interfaces/user.interfaces";
 export const AvatarUser = () => {
   const { user,logout } = useAuthStore();
