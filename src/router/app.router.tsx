@@ -4,6 +4,7 @@ import { HomePages } from "../shop/pages/HomePages";
 import { SparepartsPage } from "../shop/pages/SparepartsPage";
 import { lazy } from "react";
 import { LoginPages } from "../auth/pages/LoginPages";
+import { AuthenticatedRoute, NotAuthenticatedRoute } from "./ProtectedRoutes";
 
 const AuthLayout = lazy(() => import("../auth/layouts/AuthLayout"));
 
@@ -16,15 +17,29 @@ export const appRouter = createBrowserRouter([
         index: true,
         element: <HomePages />,
       },
+    ],
+  },
+  {
+    path: "/spareparts",
+    element: (
+      <AuthenticatedRoute>
+        <ShopLayout />
+      </AuthenticatedRoute>
+    ),
+    children: [
       {
-        path: "spareparts",
+        index: true,
         element: <SparepartsPage />,
       },
     ],
   },
   {
     path: "/auth",
-    element: <AuthLayout />,
+    element: (
+      <NotAuthenticatedRoute>
+        <AuthLayout />
+      </NotAuthenticatedRoute>
+    ),
     children: [
       {
         index: true,
