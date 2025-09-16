@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { MdCloseFullscreen } from "react-icons/md";
 import "react-inner-image-zoom/lib/styles.min.css";
-import InnerImageZoom from "react-inner-image-zoom";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 interface Props {
   source: string;
   height: string;
@@ -26,13 +26,25 @@ export const ContentImg = ({ source, height }: Props) => {
               className="absolute w-[40px] h-[40px] bg-black text-white rounded-full top-2 left-2  z-[100] pointer-events-auto flex items-center justify-center cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
-                console.log("cerrar");
                 setZoomed(false);
               }}
             >
               <MdCloseFullscreen />
             </div>
-            <InnerImageZoom width={1050} height={600} src={source}  />
+            <TransformWrapper
+              initialScale={1}
+              minScale={0.5}
+              maxScale={8}
+              centerOnInit
+            >
+              <TransformComponent>
+                <img
+                  src={source}
+                  alt="test"
+                  className="max-w-full max-h-screen object-contain"
+                />
+              </TransformComponent>
+            </TransformWrapper>
           </div>,
           document.body
         )}

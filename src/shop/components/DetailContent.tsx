@@ -5,13 +5,14 @@ import { ContentPrice } from "./ContentPrice";
 import { EmptyContent } from "./EmptyContent";
 import { useState } from "react";
 import { usePrice } from "../hooks/usePrice";
+import { ContentLoading } from "./ContentLoading";
 
 interface Props {
   data: DataDetailProduct;
 }
 export const DetailContent = ({ data }: Props) => {
-  const [select, setSelect] = useState("precio-minorista");
-   const {data: priceData}= usePrice(select);
+  const [select, setSelect] = useState("");
+   const {data: priceData,isLoading}= usePrice(select);
   return (
     <div className="w-full">
       <div className="pb-4  grid justify-between ">
@@ -28,7 +29,7 @@ export const DetailContent = ({ data }: Props) => {
       <ContentImages photo={data.photos} />
 
       <SelectPrice select={select} setSelect={setSelect} />
-      {priceData?.data ? <ContentPrice data={priceData.data} /> : <EmptyContent />}
+      {isLoading ? <ContentLoading small /> :   priceData?.data ? <ContentPrice data={priceData.data} /> : <EmptyContent />}
     </div>
   );
 };

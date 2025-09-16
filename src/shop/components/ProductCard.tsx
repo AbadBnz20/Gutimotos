@@ -1,8 +1,9 @@
 import { useAuthStore } from "@/auth/store/auth.store";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {  useNavigate, useSearchParams } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import { useProductStore } from "../store/product.store";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 interface Props {
   id: number;
   motorcycle_file: number;
@@ -20,31 +21,35 @@ export const ProductCard = ({
   brand,
   motorcycle_type,
   color,
-  setOpenDialog
+  setOpenDialog,
 }: Props) => {
-   const navigate = useNavigate();
-  const {authStatus}=useAuthStore();
+  const navigate = useNavigate();
+  const { authStatus } = useAuthStore();
   const [searchParams] = useSearchParams();
-  const {setProduct,setIdSlug}= useProductStore()
+  const { setProduct, setIdSlug } = useProductStore();
   const viewMode = searchParams.get("viewMode") || "grid";
 
-const handleOpenDialog = () =>{
-  if (authStatus === 'not-authenticated') {
-     return  navigate("/auth/login");
-  }
-  setIdSlug(motorcycle_file.toString())
-  setProduct(id.toString());
-   setOpenDialog(true);
-};
-
+  const handleOpenDialog = () => {
+    if (authStatus === "not-authenticated") {
+      return navigate("/auth/login");
+    }
+    setIdSlug(motorcycle_file.toString());
+    setProduct(id.toString());
+    setOpenDialog(true);
+  };
 
   return (
     <Card className="group border-0 shadow-none product-card-hover cursor-pointer">
       <CardContent className={`p-0 ${viewMode === "list" && "flex flex-row"} `}>
         <div className="relative aspect-square overflow-hidden bg-muted rounded-lg">
-          <img
+          {/* <img
             src={photo}
             alt={brand}
+           
+            className={`${viewMode === "list" ? "w-50 h-50" : "w-full h-full"} object-cover transition-transform duration-300 group-hover:scale-105`}
+          /> */}
+          <LazyLoadImage
+            src={photo} 
             className={`${viewMode === "list" ? "w-50 h-50" : "w-full h-full"} object-cover transition-transform duration-300 group-hover:scale-105`}
           />
           <div className="image-overlay" />

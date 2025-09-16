@@ -9,5 +9,6 @@ export const usePrice = (type: string) => {
     queryFn: () => getPrice(idslug, type),
     retry: 2,
     staleTime: 0,
+     enabled: !!type ,
   });
 };

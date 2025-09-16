@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -14,12 +13,8 @@ interface Props {
   setSelect: (select: string) => void;
 }
 export const SelectPrice = ({ select, setSelect }: Props) => {
-  const { data, isSuccess } = useTypePrice();
-  useEffect(() => {
-    if (isSuccess && data.length > 0) {
-      setSelect('precio-minorista');
-    }
-  }, [isSuccess, data]);
+  const { data } = useTypePrice();
+
   return (
     <Select value={select} onValueChange={setSelect}>
       <SelectTrigger className="w-[250px] mt-3">

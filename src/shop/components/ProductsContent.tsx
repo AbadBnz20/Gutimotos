@@ -8,10 +8,12 @@ import { FilterSidebar } from "./FilterSidebar";
 import { ProductCard } from "./ProductCard";
 import { EmptyContent } from "./EmptyContent";
 import { DialogProduct } from "./DialogProduct";
+import { ContentLoading } from "./ContentLoading";
 interface Props {
   products: Product[];
+  isloading: boolean
 }
-export const ProductsContent = ({ products }: Props) => {
+export const ProductsContent = ({ products, isloading }: Props) => {
     const [openDialog, setOpenDialog] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -92,7 +94,7 @@ export const ProductsContent = ({ products }: Props) => {
 
           {/* Products Grid */}
           <div className="flex-1">
-            {products.length === 0 ? (
+            { isloading ? <ContentLoading /> :   products.length === 0 ? (
               <EmptyContent />
             ) : (
               <div
