@@ -7,7 +7,6 @@ export const useBrands = () => {
       initialPageParam: 1,
       queryKey: ["brands"],
       queryFn: ({ pageParam }) => {
-        console.log(pageParam);
         return getBrands(pageParam.toString());
       },
       getNextPageParam: (lastPage) => lastPage.next_page ?? undefined,

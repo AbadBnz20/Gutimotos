@@ -16,7 +16,6 @@ interface Props {
 }
 export const ProductCard = ({
   id,
-  motorcycle_file,
   photo,
   brand,
   motorcycle_type,
@@ -33,7 +32,7 @@ export const ProductCard = ({
     if (authStatus === "not-authenticated") {
       return navigate("/auth/login");
     }
-    setIdSlug(motorcycle_file.toString());
+    setIdSlug(id.toString());
     setProduct(id.toString());
     setOpenDialog(true);
   };
