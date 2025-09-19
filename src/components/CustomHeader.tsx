@@ -1,7 +1,5 @@
 import { CustomLogo } from "@/auth/components/CustomLogo";
 import { Link, useLocation } from "react-router";
-import { IoIosSearch } from "react-icons/io";
-import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useAuthStore } from "@/auth/store/auth.store";
 import { AvatarUser } from "./AvatarUser";
@@ -39,7 +37,7 @@ export const CustomHeader = () => {
 
           {/* Search and Cart */}
           <div className="flex items-center space-x-4">
-            <div className="hidden md:flex items-center space-x-2">
+            {/* <div className="hidden md:flex items-center space-x-2">
               <div className="relative">
                 <IoIosSearch className="absolute top-1/2 left-3 -translate-y-1/2" />
                 <Input
@@ -51,7 +49,7 @@ export const CustomHeader = () => {
 
             <Button variant="ghost" size="icon" className="md:hidden">
               <IoIosSearch />
-            </Button>
+            </Button> */}
 
             {authStatus === "authenticated" ? (
               <AvatarUser />

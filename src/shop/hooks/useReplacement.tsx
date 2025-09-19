@@ -9,9 +9,10 @@ export const useReplacement = () => {
   const type_price_slug = searchParams.get("type_price_slug");
   const brand = searchParams.get("brand");
   const category = searchParams.get("category");
+  const search = searchParams.get("search");
   return useQuery({
-    queryKey: ["replacement", { cursor, currency,type_price_slug, brand, category }],
-    queryFn: () => getReplacement(cursor, currency,type_price_slug, brand, category),
+    queryKey: ["replacement", { cursor, currency,type_price_slug, brand, category,search }],
+    queryFn: () => getReplacement(cursor, currency,type_price_slug, brand, category,search),
     retry: 2,
     staleTime: 0,
   });

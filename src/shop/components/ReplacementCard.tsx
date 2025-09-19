@@ -30,6 +30,8 @@ export const ReplacementCard = ({
   const { setProduct, setIdSlug } = useProductStore();
   const viewMode = searchParams.get("viewMode") || "grid";
 
+  const currency = searchParams.get("currency_code") || "BOB";
+
   const handleOpenDialog = () => {
     if (authStatus === "not-authenticated") {
       return navigate("/auth/login");
@@ -69,7 +71,7 @@ export const ReplacementCard = ({
               {product_code}
             </p>
             <p className="font-medium">
-              <span>$ {calculated_price}</span>
+              <span>{currency} {calculated_price? calculated_price: "-" }</span>
             </p>
           </div>
 

@@ -6,7 +6,8 @@ export const getReplacement = async (
   currency_code: string | null,
   type_price_slug: string | null,
   brand: string | null,
-  category: string | null
+  category: string | null,
+  search: string | null
 ): Promise<ReplacementResponse> => {
   const { data } = await gutiMotors.get<ReplacementResponse>(
     "/products/api/product-photo",
@@ -17,6 +18,7 @@ export const getReplacement = async (
         type_price_slug,
         brand,
         category,
+        search,
       },
     }
   );
