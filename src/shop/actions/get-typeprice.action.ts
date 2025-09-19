@@ -5,5 +5,5 @@ export const getTypePrice = async (): Promise<TypePriceResponse[]> => {
   const { data } = await gutiMotors.get<TypePriceResponse[]>(
     "/core/api/type-price"
   );
-  return data;
+  return data??[];
 };
