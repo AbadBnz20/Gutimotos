@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate, useSearchParams } from "react-router";
 import { useProductStore } from "../store/product.store";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import clsx from "clsx";
 
 interface Props {
   id: number;
@@ -50,12 +51,18 @@ export const ReplacementCard = ({
         }`}
       >
         {/* Imagen */}
-        <div className="relative aspect-square overflow-hidden bg-muted rounded-lg">
+        <div
+          className={clsx(
+            "relative overflow-hidden bg-muted rounded-lg",
+            viewMode === "list" ? "w-50 h-50" : "aspect-square"
+          )}
+        >
           <LazyLoadImage
             src={photo}
-            className={`${
-              viewMode === "list" ? "w-50 h-50" : "w-full h-full"
-            } object-cover transition-transform duration-300 group-hover:scale-105`}
+            className={clsx(
+              viewMode === "list" ? "w-50 h-50" : "w-full h-full",
+              "object-cover transition-transform duration-300 group-hover:scale-105"
+            )}
           />
           <div className="image-overlay" />
         </div>
@@ -71,7 +78,9 @@ export const ReplacementCard = ({
               {product_code}
             </p>
             <p className="font-medium">
-              <span>{currency} {calculated_price? calculated_price: "-" }</span>
+              <span>
+                {currency} {calculated_price ? calculated_price : "-"}
+              </span>
             </p>
           </div>
 
