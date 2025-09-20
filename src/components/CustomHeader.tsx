@@ -5,7 +5,10 @@ import { useAuthStore } from "@/auth/store/auth.store";
 import { AvatarUser } from "./AvatarUser";
 import { RiMenu3Fill } from "react-icons/ri";
 import { useState } from "react";
-import { ContentSidebarMovil, ContentSidebarMovilUser } from "@/shop/components/ContentSidebarMovil";
+import {
+  ContentSidebarMovil,
+  ContentSidebarMovilUser,
+} from "@/shop/components/ContentSidebarMovil";
 export const CustomHeader = () => {
   const { authStatus } = useAuthStore();
   const location = useLocation();
@@ -41,12 +44,25 @@ export const CustomHeader = () => {
 
             {/* Search and Cart */}
             <div className="flex items-center space-x-4">
-              <div
-                className="md:hidden"
-                onClick={() => setShowFilters(!showFilters)}
-              >
-                <RiMenu3Fill size={24} />
-              </div>
+              {authStatus === "authenticated" ? (
+                <div
+                  className="md:hidden"
+                  onClick={() => setShowFilters(!showFilters)}
+                >
+                  <RiMenu3Fill size={24} />
+                </div>
+              ) : (
+                <Link className="md:hidden" to="/auth/login">
+                  <Button
+                    variant="default"
+                    size="sm"
+                    className="ml-2 cursor-pointer"
+                  >
+                    Iniciar session
+                  </Button>
+                </Link>
+              )}
+
               <div className="hidden md:block">
                 {authStatus === "authenticated" ? (
                   <AvatarUser />
@@ -70,7 +86,7 @@ export const CustomHeader = () => {
       {showFilters && (
         <div className="fixed overflow-y-auto inset-0 z-50 bg-background p-4 lg:hidden">
           <div className="flex items-center justify-between mb-6">
-            <ContentSidebarMovilUser/>
+            <ContentSidebarMovilUser />
             <Button
               variant="ghost"
               size="sm"
@@ -80,7 +96,7 @@ export const CustomHeader = () => {
             </Button>
           </div>
           {/* <FilterSidebar /> */}
-          <ContentSidebarMovil/>
+          <ContentSidebarMovil />
         </div>
       )}
     </>

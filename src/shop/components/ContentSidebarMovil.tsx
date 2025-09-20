@@ -8,7 +8,7 @@ export const ContentSidebarMovil = () => {
   const path = location.pathname.split("/")[1];
   const { logout } = useAuthStore();
   return (
-    <div className="flex flex-col h-[85vh] justify-between">
+    <div className="flex flex-col ">
       <div className="flex flex-col space-y-5">
         <Link
           to="/"
