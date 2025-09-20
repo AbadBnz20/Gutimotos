@@ -9,27 +9,26 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { IoExitOutline } from "react-icons/io5";
-import type { User } from "@/auth/interfaces/user.interfaces";
 export const AvatarUser = () => {
   const { user,logout } = useAuthStore();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <User />
+        <UserContent />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
           <div>
             <p className="text-[13px] font-semibold">{user?.fullName}</p>
             <p className="text-[12px]">{user?.email}</p>
-          </div>{" "}
+          </div>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="cursor-pointer" onClick={logout}>
           Cerrar Session
           <DropdownMenuShortcut>
-            <IoExitOutline />{" "}
+            <IoExitOutline />
           </DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -37,7 +36,7 @@ export const AvatarUser = () => {
   );
 };
 
-const User = () => {
+export const UserContent = () => {
   const { user } = useAuthStore();
 
   return (

@@ -9,7 +9,7 @@ export const CheckAuthProvider = ({ children }: PropsWithChildren) => {
     queryKey: ["auth"],
     queryFn: checkAuthStatus,
     retry: false,
-    refetchInterval: 1000 * 60 * 4,
+    refetchInterval: 1000 * 60 * 5,
     refetchOnWindowFocus: false, 
   });
   if (isLoading) return <CustomFullScreenLoading />;

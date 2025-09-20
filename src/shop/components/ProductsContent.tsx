@@ -77,7 +77,7 @@ export const ProductsContent = ({ products, isloading }: Props) => {
 
           {/* Mobile Filters */}
           {showFilters && (
-            <div className="fixed inset-0 z-50 bg-background p-4 lg:hidden">
+            <div className="fixed overflow-y-auto inset-0 z-50 bg-background p-4 lg:hidden">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-semibold">Filtros</h3>
                 <Button
