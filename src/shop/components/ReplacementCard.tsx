@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate, useSearchParams } from "react-router";
 import { useProductStore } from "../store/product.store";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import clsx from "clsx";
+import { ContentImg } from "./ContentImg";
 
 interface Props {
   id: number;
@@ -44,7 +44,7 @@ export const ReplacementCard = ({
   };
 
   return (
-    <Card className="group border-0 shadow-none product-card-hover cursor-pointer h-full">
+    <Card className="group rounded-md border shadow-none product-card-hover cursor-pointer h-full">
       <CardContent
         className={`p-0 h-full ${
           viewMode === "list" ? "flex flex-row" : "flex flex-col"
@@ -57,12 +57,19 @@ export const ReplacementCard = ({
             viewMode === "list" ? "w-50 h-50" : "aspect-square"
           )}
         >
-          <LazyLoadImage
+          {/* <LazyLoadImage
             src={photo}
             className={clsx(
               viewMode === "list" ? "w-50 h-50" : "w-full h-full",
               "object-cover transition-transform duration-300 group-hover:scale-105"
             )}
+          /> */}
+
+          <ContentImg
+            source={photo}
+            height={`${
+              viewMode === "list" ? "w-50 h-50" : "w-full h-full"
+            } object-cover transition-transform duration-300 group-hover:scale-105`}
           />
           <div className="image-overlay" />
         </div>
@@ -78,9 +85,7 @@ export const ReplacementCard = ({
               {product_code}
             </p>
             <p className="font-medium">
-              <span>
-                {currency} {calculated_price ? calculated_price : "-"}
-              </span>
+              <span>{calculated_price ? currency + calculated_price : ""}</span>
             </p>
           </div>
 
@@ -92,7 +97,7 @@ export const ReplacementCard = ({
               onClick={handleOpenDialog}
               className="cursor-pointer transition-all duration-300 hover:bg-primary hover:text-primary-foreground border-primary/20 text-xs px-4 py-2 h-8"
             >
-              Ver más
+              Descubrelo ahora
             </Button>
           </div>
         </div>

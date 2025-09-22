@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import { MdCloseFullscreen } from "react-icons/md";
+import { IoMdClose } from "react-icons/io";
 import "react-inner-image-zoom/lib/styles.min.css";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 interface Props {
@@ -29,7 +29,7 @@ export const ContentImg = ({ source, height }: Props) => {
                 setZoomed(false);
               }}
             >
-              <MdCloseFullscreen />
+              <IoMdClose size={20} />
             </div>
             <TransformWrapper
               initialScale={1}

@@ -5,7 +5,8 @@ import { useTypePrice } from "../hooks/useTypePrice";
 export const FilterTypePrice = () => {
   const { data } = useTypePrice();
   const [searchParams, setSearchParams] = useSearchParams();
-  const currenttypeprice = searchParams.get("type_price_slug") || "venta-publico";
+  const currenttypeprice =
+    searchParams.get("type_price_slug") || "venta-publico";
 
   const handleBrandChanged = (codecurrency: string) => {
     if (codecurrency === currenttypeprice) {
@@ -32,7 +33,10 @@ export const FilterTypePrice = () => {
           : "border-input bg-transparent"
       }`}
           >
-            <Checkbox checked={currenttypeprice === typeprice.slug} defaultChecked={typeprice.slug==='venta-publico'}/>
+            <Checkbox
+              checked={currenttypeprice === typeprice.slug}
+              defaultChecked={typeprice.slug === "venta-publico"}
+            />
             <span className="ml-2">{typeprice.name}</span>
           </div>
         ))}
