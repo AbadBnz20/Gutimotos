@@ -31,7 +31,7 @@ export const ContentImagesMobile = ({ photo }: Props) => {
             <CarouselItem key={img.id}>
               <ContentImg
                 source={img.photo}
-                height={`${photo.length > 2 ? "h-[145px]" : "h-[300px]"}`}
+                height={`w-full ${photo.length > 2 ? "h-[145px]" : "h-[300px]"}`}
               />
             </CarouselItem>
           ))}

@@ -24,10 +24,10 @@ export const DialogProduct = ({ open, setOpen }: Props) => {
     const phoneNumber = "59167398260";
     const message = `
     Soy usuario con el email:${user?.email}.
-Quiero una cotización de la motocicleta:
-Marca:${data?.data.brand_name}
-Tipo:${data?.data.motorcycle_type_name}
-Color:${data?.data.color_name}`;
+    Quiero una cotización de la motocicleta:
+    Marca:${data?.data.brand_name}
+    Tipo:${data?.data.motorcycle_type_name}
+    Color:${data?.data.color_name}`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`;
