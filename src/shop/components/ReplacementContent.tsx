@@ -9,7 +9,6 @@ import { ContentLoading } from "./ContentLoading";
 import type { Replacement } from "../interfaces/Replacement.response";
 import { ReplacementCard } from "./ReplacementCard";
 import { DialogReplace } from "./DialogReplace";
-import { IoMdClose } from "react-icons/io";
 import { Input } from "@/components/ui/input";
 interface Props {
   replacements: Replacement[];
@@ -81,7 +80,7 @@ export const ReplacementContent = ({ replacements, isloading }: Props) => {
           <div className="flex gap-8">
             {/* Filters Sidebar - Desktop */}
             <div className="hidden lg:block">
-              <FilterSidebar replacement={true} />
+              <FilterSidebar replacement={true} type="sparepart" />
             </div>
 
             {/* Mobile Filters */}
@@ -95,10 +94,10 @@ export const ReplacementContent = ({ replacements, isloading }: Props) => {
                       size="sm"
                       onClick={() => setShowFilters(false)}
                     >
-                      <IoMdClose size={20} />
+                      cerrar
                     </Button>
                   </div>
-                  <FilterSidebar replacement={true} />
+                  <FilterSidebar replacement={true} type="sparepart" />
                 </div>
               </div>
             )}
@@ -124,6 +123,8 @@ export const ReplacementContent = ({ replacements, isloading }: Props) => {
                       product={product.product}
                       photo={product.photo}
                       product_code={product.product_code}
+                      brand_name={product.brand_name}
+                      measure_name={product.measure_name}
                       product_description={product.product_description}
                       calculated_price={product.calculated_price}
                       setOpenDialog={setOpenDialog}

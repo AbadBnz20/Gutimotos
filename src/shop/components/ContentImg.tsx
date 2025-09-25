@@ -16,7 +16,7 @@ export const ContentImg = ({ source, height }: Props) => {
       <img
         src={source}
         alt=""
-        className={`w-full object-cover rounded-sm cursor-pointer ${height}`}
+        className={`object-cover rounded-sm cursor-pointer ${height}`}
         onClick={() => setZoomed(true)}
       />
       {zoomed &&

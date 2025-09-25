@@ -12,7 +12,7 @@ interface Props {
 }
 export const DetailContent = ({ data }: Props) => {
   const [select, setSelect] = useState("");
-   const {data: priceData,isLoading}= usePrice(select);
+   const {data: priceData,isLoading}= usePrice(select,data.motorcycle_type_id.toString());
   return (
     <div className="w-full">
       <div className="pb-4  grid justify-between ">

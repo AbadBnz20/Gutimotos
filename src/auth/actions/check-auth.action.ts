@@ -12,6 +12,8 @@ export const checkAuth = async (): Promise<CheckAuth> => {
         refresh_token: refreshtoken,
       }
     );
+
+
     return data;
   } catch (error) {
     console.log(error);

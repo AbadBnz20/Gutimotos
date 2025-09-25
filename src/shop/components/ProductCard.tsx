@@ -25,14 +25,14 @@ export const ProductCard = ({
   const navigate = useNavigate();
   const { authStatus } = useAuthStore();
   const [searchParams] = useSearchParams();
-  const { setProduct, setIdSlug } = useProductStore();
+  const { setProduct } = useProductStore();
   const viewMode = searchParams.get("viewMode") || "grid";
 
   const handleOpenDialog = () => {
     if (authStatus === "not-authenticated") {
       return navigate("/auth/login");
     }
-    setIdSlug(id.toString());
+    // console.log(id)
     setProduct(id.toString());
     setOpenDialog(true);
   };
@@ -40,13 +40,7 @@ export const ProductCard = ({
   return (
     <Card className="group rounded-md border shadow-none product-card-hover cursor-pointer ">
       <CardContent className={`p-0 ${viewMode === "list" && "flex flex-row"} `}>
-        <div className="relative aspect-square overflow-hidden bg-muted rounded-t-md">
-          {/* <img
-            src={photo}
-            alt={brand}
-           
-            className={`${viewMode === "list" ? "w-50 h-50" : "w-full h-full"} object-cover transition-transform duration-300 group-hover:scale-105`}
-          /> */}
+        <div className="relative aspect-square overflow-hidden bg-muted rounded-md  border m-2">
           {/* <LazyLoadImage
             src={photo} 
             className={`${viewMode === "list" ? "w-50 h-50" : "w-full h-full"} object-cover transition-transform duration-300 group-hover:scale-105`}
@@ -58,7 +52,7 @@ export const ProductCard = ({
               viewMode === "list" ? "w-50 h-50" : "w-full h-full"
             } object-cover transition-transform duration-300 group-hover:scale-105`}
           />
-          <div className="image-overlay" />
+          <div className="image-overlay " />
         </div>
 
         <div className="pt-6 px-4 pb-4 space-y-3 grid justify-between ">

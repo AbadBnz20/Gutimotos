@@ -7,7 +7,7 @@ export const useTypePrice = () => {
     queryKey: ["typeprice"],
     queryFn: () => getTypePrice(),
     retry: 2,
-    staleTime: 1000 * 60 * 60 * 24,
+    staleTime: 1000 * 60 * 30,
   });
   return { data: data ?? [] };
 };

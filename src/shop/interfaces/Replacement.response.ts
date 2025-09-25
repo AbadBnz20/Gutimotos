@@ -9,6 +9,8 @@ export interface Replacement {
   product: string;
   photo: string;
   product_code: string;
+  brand_name:string | null;
+  measure_name: string;
   product_description: string;
   calculated_price: number;
   created: Date;

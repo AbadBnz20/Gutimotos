@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router";
 import type { Product } from "../interfaces/Products.response";
 import { Button } from "@/components/ui/button";
-import { IoMdClose, IoMdGrid } from "react-icons/io";
+import {  IoMdGrid } from "react-icons/io";
 import { FaListUl } from "react-icons/fa";
 import { FilterSidebar } from "./FilterSidebar";
 import { ProductCard } from "./ProductCard";
@@ -72,7 +72,7 @@ export const ProductsContent = ({ products, isloading }: Props) => {
           <div className="flex gap-8">
             {/* Filters Sidebar - Desktop */}
             <div className="hidden lg:block">
-              <FilterSidebar />
+              <FilterSidebar type="motorcycle" />
             </div>
 
             {/* Mobile Filters */}
@@ -86,10 +86,10 @@ export const ProductsContent = ({ products, isloading }: Props) => {
                       size="sm"
                       onClick={() => setShowFilters(false)}
                     >
-                      <IoMdClose size={20} />
+                      cerrar
                     </Button>
                   </div>
-                  <FilterSidebar />
+                  <FilterSidebar type="motorcycle" />
                 </div>
               </div>
             )}
@@ -105,7 +105,7 @@ export const ProductsContent = ({ products, isloading }: Props) => {
                   className={
                     viewMode === "grid"
                       ? "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6"
-                      : "space-y-4 grid grid-cols-1 sm:grid-cols-2"
+                      : "space-y-4 grid grid-cols-1 sm:grid-cols-2 gap-6"
                   }
                 >
                   {products.map((product) => (

@@ -56,7 +56,7 @@ export const ContentImagesDesktop = ({ photo }: Props) => {
           {photo.length > 0 && (
             <ContentImg
               source={photo[0].photo}
-              height="h-[170px]  md:h-[300px]"
+              height="w-full h-[170px]  md:h-[300px]"
             />
           )}
         </div>
@@ -64,11 +64,11 @@ export const ContentImagesDesktop = ({ photo }: Props) => {
           {photo.length > 1 && (
             <ContentImg
               source={photo[1].photo}
-              height={`${photo.length > 2 ? "h-[145px]" : "h-[300px]"}`}
+              height={`w-full ${photo.length > 2 ? "h-[145px]" : "h-[300px]"}`}
             />
           )}
           {photo.length > 2 && (
-            <ContentImg source={photo[2].photo} height="h-[145px]" />
+            <ContentImg source={photo[2].photo} height=" w-full h-[145px]" />
           )}
         </div>
       </div>

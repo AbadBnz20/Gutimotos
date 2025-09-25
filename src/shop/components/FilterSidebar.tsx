@@ -5,8 +5,9 @@ import { FilterCurrencies } from "./FilterCurrencies";
 import { FilterTypePrice } from "./FilterTypePrice";
 interface Props {
   replacement?: boolean;
+  type:string;
 }
-export const FilterSidebar = ({ replacement }: Props) => {
+export const FilterSidebar = ({ replacement,type }: Props) => {
  
  
 
@@ -17,7 +18,7 @@ export const FilterSidebar = ({ replacement }: Props) => {
         <h3 className="font-semibold text-lg mb-4 hidden lg:block">Filtros</h3>
       </div>
 
-      <FilterBrands />
+      <FilterBrands type={type} />
 
       <Separator />
 

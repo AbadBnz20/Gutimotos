@@ -2,9 +2,12 @@ import { Button } from "@/components/ui/button";
 import { useSearchParams } from "react-router";
 import { useBrands } from "../hooks/useBrands";
 import { Checkbox } from "@/components/ui/checkbox";
+interface Props {
+  type: string;
+}
 
-export const FilterBrands = () => {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useBrands();
+export const FilterBrands = ({type}:Props) => {
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useBrands(type);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const currentbrand = searchParams.get("brand") || "";

@@ -11,16 +11,21 @@ interface Props {
   product: string;
   photo: string;
   product_code: string;
+  brand_name: string | null;
+  measure_name: string;
   product_description: string;
   calculated_price: number;
   setOpenDialog: (open: boolean) => void;
   setProduct_description: (description: string) => void;
 }
+
 export const ReplacementCard = ({
   id,
   photo,
   product_code,
   product_description,
+  brand_name,
+  measure_name,
   calculated_price,
   setOpenDialog,
   setProduct_description,
@@ -53,7 +58,7 @@ export const ReplacementCard = ({
         {/* Imagen */}
         <div
           className={clsx(
-            "relative overflow-hidden bg-muted rounded-lg",
+            "relative overflow-hidden bg-muted  rounded-md  border m-2",
             viewMode === "list" ? "w-50 h-50" : "aspect-square"
           )}
         >
@@ -81,11 +86,16 @@ export const ReplacementCard = ({
             <h3 className="font-medium text-sm tracking-tight line-clamp-2">
               {product_description}
             </h3>
+             <p className="text-xs text-muted-foreground uppercase">
+              {brand_name} {brand_name && "-"} {measure_name}
+            </p>
             <p className="text-xs text-muted-foreground uppercase">
               {product_code}
             </p>
             <p className="font-medium">
-              <span>{calculated_price ? currency + calculated_price : ""}</span>
+              <span>
+                {calculated_price ? currency + " " + calculated_price : ""}
+              </span>
             </p>
           </div>
 
