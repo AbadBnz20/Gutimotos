@@ -4,9 +4,18 @@ import { Separator } from "@/components/ui/separator";
 import { IoExitOutline } from "react-icons/io5";
 import { Link } from "react-router";
 
-export const ContentSidebarMovil = () => {
+interface Props {
+  onClose: () => void;
+}
+export const ContentSidebarMovil = ({ onClose }: Props) => {
   const path = location.pathname.split("/")[1];
   const { logout } = useAuthStore();
+
+ const HandleClose = async ()=>{
+  onClose();
+  logout();
+ }
+
   return (
     <div className="flex flex-col ">
       <div className="flex flex-col space-y-5">
@@ -29,7 +38,7 @@ export const ContentSidebarMovil = () => {
         </Link>
         <Separator />
       </div>
-      <div onClick={logout} className="flex items-center justify-between space-x-2 mt-6 cursor-pointer">
+      <div onClick={HandleClose} className="flex items-center justify-between space-x-2 mt-6 cursor-pointer">
         <h4 className="text-sm font-medium transition-colors"> Cerrar Session</h4> <IoExitOutline />
       </div>
     </div>

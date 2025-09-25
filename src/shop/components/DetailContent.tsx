@@ -1,18 +1,14 @@
 import type { DataDetailProduct } from "../interfaces/DetailProduct.response";
 import { ContentImages } from "./ContentImages";
 import { SelectPrice } from "./SelectPrice";
-import { ContentPrice } from "./ContentPrice";
-import { EmptyContent } from "./EmptyContent";
 import { useState } from "react";
-import { usePrice } from "../hooks/usePrice";
-import { ContentLoading } from "./ContentLoading";
+import { ContentMainPrice } from "./ContentMainPrice";
 
 interface Props {
   data: DataDetailProduct;
 }
 export const DetailContent = ({ data }: Props) => {
   const [select, setSelect] = useState("");
-   const {data: priceData,isLoading}= usePrice(select,data.motorcycle_type_id.toString());
   return (
     <div className="w-full">
       <div className="pb-4  grid justify-between ">
@@ -29,7 +25,7 @@ export const DetailContent = ({ data }: Props) => {
       <ContentImages photo={data.photos} />
 
       <SelectPrice select={select} setSelect={setSelect} />
-      {isLoading ? <ContentLoading small /> :   priceData?.data ? <ContentPrice data={priceData.data} /> : <EmptyContent />}
+      <ContentMainPrice select={select} motorcycle_type_id={data.motorcycle_type_id} />
     </div>
   );
 };

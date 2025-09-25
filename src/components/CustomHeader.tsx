@@ -14,6 +14,10 @@ export const CustomHeader = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
   const [showFilters, setShowFilters] = useState(false);
+
+  const hanleClose = async () => {
+    setShowFilters(false);
+  };
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b backdrop-blur bg-slate-50">
@@ -87,16 +91,12 @@ export const CustomHeader = () => {
         <div className="fixed overflow-y-auto inset-0 z-50 bg-background p-4 lg:hidden">
           <div className="flex items-center justify-between mb-6">
             <ContentSidebarMovilUser />
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setShowFilters(false)}
-            >
+            <Button variant="ghost" size="sm" onClick={() => hanleClose()}>
               Cerrar
             </Button>
           </div>
           {/* <FilterSidebar /> */}
-          <ContentSidebarMovil />
+          <ContentSidebarMovil onClose={hanleClose} />
         </div>
       )}
     </>
