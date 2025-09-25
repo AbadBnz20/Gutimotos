@@ -3,7 +3,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useTypePrice } from "../hooks/useTypePrice";
 
 export const FilterTypePrice = () => {
-  const { data } = useTypePrice();
+  const { data } = useTypePrice('sparepart');
   const [searchParams, setSearchParams] = useSearchParams();
   const currenttypeprice =
     searchParams.get("type_price_slug") || "venta-publico";

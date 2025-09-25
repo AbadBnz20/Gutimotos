@@ -23,6 +23,10 @@ export const LoginPages = () => {
     setIsposting(false);
   };
 
+  const redirectToExternal = (url: string) => {
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
   return (
     <div className={"flex flex-col gap-6"}>
       <Card className="overflow-hidden p-0  ">
@@ -33,7 +37,7 @@ export const LoginPages = () => {
                 <CustomLogo />
 
                 <p className="text-sm text-muted-foreground">
-                  Ingrese a nuestra web y podras ver nuestros catalogos
+                  Somos una concesionaria con las mejores marcas de motocicletas y repuestos, piezas, accesorios. ofreciendo con soporte y servicios técnico especializado
                 </p>
               </div>
 
@@ -52,18 +56,19 @@ export const LoginPages = () => {
                   </span>
                 </div>
                 <div className="grid grid-cols-3 gap-4 mt-5">
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full" onClick={() => redirectToExternal("https://www.facebook.com/share/1AE1zW2o3q/")}>
                     <FaFacebookF color="#bf2829" />
-                    <span className="sr-only">Login with Apple</span>
+                    <span className="sr-only">Login facebook</span>
                   </Button>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full" onClick={() => redirectToExternal("https://www.instagram.com/gutimotos.tj?utm_source=qr&igsh=MXJvcTI2d2dnc2p1dg==")}>
                     <FaInstagram color="#bf2829" />
-                    <span className="sr-only">Login with Google</span>
+                    <span className="sr-only">Login with Instagram</span>
                   </Button>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full" onClick={() => redirectToExternal("https://www.tiktok.com/@gutimotos_tj?is_from_webapp=1&sender_device=pc")}>
                     <FaTiktok color="#bf2829" />
-                    <span className="sr-only">Login with Meta</span>
+                    <span className="sr-only">Login with tiktok</span>
                   </Button>
+                 
                 </div>
               </div>
             </div>

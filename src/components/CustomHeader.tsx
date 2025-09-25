@@ -62,7 +62,7 @@ export const CustomHeader = () => {
                     size="sm"
                     className="ml-2 cursor-pointer"
                   >
-                    Iniciar session
+                    Obtener Catalogo
                   </Button>
                 </Link>
               )}
@@ -77,7 +77,7 @@ export const CustomHeader = () => {
                       size="sm"
                       className="ml-2 cursor-pointer"
                     >
-                      Iniciar session
+                      Obtener Catalogo
                     </Button>
                   </Link>
                 )}

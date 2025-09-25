@@ -13,7 +13,7 @@ interface Props {
   setSelect: (select: string) => void;
 }
 export const SelectPrice = ({ select, setSelect }: Props) => {
-  const { data } = useTypePrice();
+  const { data } = useTypePrice('motorcycle');
 
   return (
     <Select value={select} onValueChange={setSelect}>

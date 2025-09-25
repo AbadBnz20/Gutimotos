@@ -18,9 +18,9 @@ export const ContentPrice = ({ data: priceData }: Props) => {
         <Badge variant="secondary">{priceData.prices.length} Monedas</Badge>
       </div>
       <div className="mt-2  grid grid-cols-1 md:grid-cols-2 gap-2">
-        {priceData.prices.map((price, index) => (
+        {priceData.prices.map((price) => (
           <div
-            key={index}
+            key={price.currency_name}
             className="flex items-center justify-between p-2 px-3 bg-muted/50 rounded-lg border"
           >
             <div className="flex flex-col">
